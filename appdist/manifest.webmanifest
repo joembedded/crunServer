@@ -1,0 +1,45 @@
+{
+	"lang": "en-EN",
+	"name": "CrunServer",
+	"short-name": "CrunServer",
+	"description": "Server for LTX '.crun' command files",
+	"background_color": "#808080",
+	"theme_color": "#0172ad",
+	"display": "standalone",
+	"orientation": "any",
+	"scope": "./",
+	"start_url": "./",
+	"id": "crun001",
+	"categories": [
+		"education",
+		"business"
+	],
+	"icons": [
+		{
+			"src": "./static/preview512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		},
+		{
+			"src": "./static/preview512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "./static/preview512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"label": "Preview512x512"
+		},
+		{
+			"src": "./static/preview1024x768.png",
+			"sizes": "1024x768",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Preview1024x768"
+		}
+	]
+}

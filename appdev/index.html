@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--  CrunServer Index
+    Test: http://localhost/wrk/crunserver/appdev
+    Run:  https://flexgate.org/crunserver
+    (C) JoEmbedded.de  
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta meta property="og:title" content="CrunServer" />
+    <meta property="og:description" content="Server for LTX '.crun' command files" />
+    <meta name="description" content="Server for LTX '.crun' command files" />
+
+    <!-- Pfad 'preview' zeigt in Release immer auf volle URL (nur dann als Link-Preview-Bild immer korrekt darstellbar) -->
+    <meta property="og:image" content="https://flexgate.org/crunserver/static/preview1024x768.png" />
+
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#0172ad">
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+
+    <!-- IconListe: https://icons.getbootstrap.com/#icons -->
+    <link rel="stylesheet" href="./static/icons/bootstrap-icons.min.css">
+
+    <!-- Top team: pico.conditional.css and jodash.css  -->
+    <link rel="stylesheet" href="./css/pico.conditional.css">
+    <link rel="stylesheet" href="./css/jodash.css">
+    <script src="./js/crunserver.js" defer type="module"></script>
+    <title>CrunServer</title>
+</head>
+
+<body>
+    <main class="pico container">
+        <nav style="background-color:  rgba(1, 113, 173, 0.1); padding: 0 1rem;">
+            <ul>
+                <li><strong>CrunServer <span id="svers">V?</span></strong></li>
+            </ul>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="./php_qr/index.php">QR-Helper</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <div>
+                Scripts
+            </div>
+            <div id="slistdiv"></div>
+        </article>
+        <button hidden id="debugbutton" class="secondary">Debug</button>
+    </main>
+</body>
+
+<template id="templine">
+    <div role="group">
+        <span class="tcrun" style="width: 100%; margin: auto; padding: 1rem ; background-color: rgba(0,0,0,0.05)"> Vielx
+        </span>
+        &nbsp;&nbsp; <button class="tcget" style="white-space: nowrap;"><i class="bi bi-download"></i> Get</button>
+        &nbsp;&nbsp; <button class="tcdetails" style="white-space: nowrap;"><i class="bi bi-nut"></i> Details</button>
+    </div>
+</template>
+
+<template id="tdetails">
+    <div>
+        Command for BlxDash:<br><br>
+        <span class="spath" style="padding: 1rem ; background-color: rgba(0,0,0,0.05)">
+        </span>
+        &nbsp;<button class="tbcopy" style="font-size: 1.5em;"><i class="bi bi-copy"></i></button>
+    </div>
+    <br>
+    Scan QRCode with BlxDash:<br>
+    <div style="padding: 1rem ; background-color: rgba(0,0,0,0.05)">
+        <img class="tqrimg" style="display: block;  margin-left: auto;  margin-right: auto;" src="static/preview128.png"
+            alt="QRCode">
+    </div>
+</template>
+
+
+</html>
