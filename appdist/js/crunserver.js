@@ -40,17 +40,14 @@ async function fileExport(string, fname) {
     }
 }
 async function buttonGet(e) { // Klick evtl. aufs Symbol, daher 2 Parents up
-    e.target.ariaBusy = true // Set Spinner
     let crun = e.target.parentNode.querySelector(".tcrun")?.textContent
     if(!crun) crun = e.target.parentNode.parentNode.querySelector(".tcrun").textContent
      JD.fetch_get_txt(`./php/cget.php?cf=${crun}`, async (e) => {
          await fileExport(e, crun)
      })
-    e.target.ariaBusy = false
 }
 
 async function buttonDetails(e) { // Klick evtl. aufs Symbol, daher 2 Parents up
-    e.target.ariaBusy = true // Set Spinner
     let crun = e.target.parentNode.querySelector(".tcrun")?.textContent
     if(!crun) crun = e.target.parentNode.parentNode.querySelector(".tcrun").textContent
     const tdet = document.getElementById("tdetails").content.cloneNode(true)
@@ -64,11 +61,10 @@ async function buttonDetails(e) { // Klick evtl. aufs Symbol, daher 2 Parents up
     })
     const qdi = JD.prepareCustomDialog(`Details '${crun}'`, tdet)
     await JD.doCustomDialog(qdi)
-    e.target.ariaBusy = false
 }
 
 //--init defered--
-JD.dashSetFont(0.75)
+//JD.dashSetFont(0.75)
 JD.fetch_get_json('./php/worker.php?cmd=clist', (cres) => {
     const clist = cres.clist
     const slistdiv = document.getElementById("slistdiv")

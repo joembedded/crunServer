@@ -24,42 +24,52 @@
     <!-- IconListe: https://icons.getbootstrap.com/#icons -->
     <link rel="stylesheet" href="./static/icons/bootstrap-icons.min.css">
 
-    <!-- Top team: pico.conditional.css and jodash.css  -->
-    <link rel="stylesheet" href="./css/pico.conditional.css">
     <link rel="stylesheet" href="./css/jodash.css">
     <script src="./js/crunserver.js" defer type="module"></script>
     <title>CrunServer</title>
 </head>
 
 <body>
-    <main class="pico container">
-        <nav style="background-color:  rgba(1, 113, 173, 0.1); padding: 0 1rem;">
-            <ul>
-                <li><strong>CrunServer <span id="svers">V?</span></strong></li>
-            </ul>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="./php_qr/index.php">QR-Helper</a></li>
-            </ul>
-        </nav>
 
-        <article>
-            <div>
-                Scripts
-            </div>
-            <div id="slistdiv"></div>
-        </article>
-        <button hidden id="debugbutton" class="secondary">Debug</button>
-    </main>
+    <div class="jo-vcontainer">
+
+        <header class="jo-menu-header">
+            <!-- Headerzeile - mit Test fuer die Internationalisierung (intmain_i18n.js) -->
+            &nbsp;<strong>CrunServer <span id="svers">V?</span></strong>
+
+            <!-- Positionerung rechts ims Menue, das selbe geht auch im Footer  -->
+            <span class="jo-menu-right">
+                <a href="/" class="bleblue" >Home</a>
+                <a href="./php_qr/index.php" class="bleblue">QR-Helper</a>
+                &nbsp;
+            </span>
+        </header>
+
+        <div class="jo-chcontent">
+            <!-- Content(s) START. Alle in diesem Container! -->
+            <main class="jo-content">
+                <div id="section_main" class="jo-user-section">
+                    <br><b>&nbsp;Scripts:</b><br><br>
+                    <div id="slistdiv"></div>
+                </div>
+            </main>
+            <!-- Content ENDE -->
+        </div>
+
+    </div> <!-- Ende jo-ccontent-->
+    <button hidden id="debugbutton" class="secondary">Debug</button>
+
 </body>
 
 <template id="templine">
-    <div role="group">
-        <span class="tcrun" style="width: 100%; margin: auto; padding: 1rem ; background-color: rgba(0,0,0,0.05)"> Vielx
+    <div style="display: flex">
+        <span class="tcrun" style="width: 100%; margin: auto; padding: 0.4rem 1rem ; background-color: rgba(0,0,0,0.05)"> Vielx
         </span>
         &nbsp;&nbsp; <button class="tcget" style="white-space: nowrap;"><i class="bi bi-download"></i> Get</button>
         &nbsp;&nbsp; <button class="tcdetails" style="white-space: nowrap;"><i class="bi bi-nut"></i> Details</button>
-    </div>
+        &nbsp;&nbsp;
+
+    </div><br>
 </template>
 
 <template id="tdetails">
@@ -67,7 +77,7 @@
         Command for BlxDash:<br><br>
         <span class="spath" style="padding: 1rem ; background-color: rgba(0,0,0,0.05)">
         </span>
-        &nbsp;<button class="tbcopy" style="font-size: 1.5em;"><i class="bi bi-copy"></i></button>
+        &nbsp;<button class="tbcopy"><i class="bi bi-copy"></i></button>
     </div>
     <br>
     Scan QRCode with BlxDash:<br>
