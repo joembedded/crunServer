@@ -33,40 +33,38 @@
 
     <div class="jo-vcontainer">
 
-        <header class="jo-menu-header">
-            <!-- Headerzeile - mit Test fuer die Internationalisierung (intmain_i18n.js) -->
+        <header  style="display: flex; background-color: var(--silvergray69); padding: 1rem;">
             &nbsp;<strong>CrunServer <span id="svers">V?</span></strong>
 
             <!-- Positionerung rechts ims Menue, das selbe geht auch im Footer  -->
-            <span class="jo-menu-right">
-                <a href="/" class="bleblue" >Home</a>
-                <a href="./php_qr/index.php" class="bleblue">QR-Helper</a>
+            <span style="margin-left: auto;">
+                <a href="/" class="bleblue">Home</a>
+                &nbsp;
+                <a href="./php_qr/index.php" style="white-space: nowrap;" class="bleblue">QR-Helper</a>
                 &nbsp;
             </span>
         </header>
 
-        <div class="jo-chcontent">
-            <!-- Content(s) START. Alle in diesem Container! -->
-            <main class="jo-content">
-                <div id="section_main" class="jo-user-section">
-                    <br><b>&nbsp;Scripts:</b><br><br>
-                    <div id="slistdiv"></div>
-                </div>
-            </main>
-            <!-- Content ENDE -->
-        </div>
+        <!-- Content(s) START. Alle in diesem Container! -->
+        <article>
+            <br><b>&nbsp;Scripts:</b><br><br>
+            <div id="slistdiv"></div>
+        </article>
+        <!-- Content ENDE -->
 
-    </div> <!-- Ende jo-ccontent-->
-    <button hidden id="debugbutton" class="secondary">Debug</button>
+    </div>
+    <button hidden id="debugbutton">Debug</button>
 
 </body>
 
 <template id="templine">
     <div style="display: flex">
-        <span class="tcrun" style="width: 100%; margin: auto; padding: 0.4rem 1rem ; background-color: rgba(0,0,0,0.05)"> Vielx
+        &nbsp;&nbsp;
+        <span class="tcrun" style="width: 100%; margin: auto; padding: 0.5rem; background-color: rgba(0,0,0,0.05)">
+            Vielx
         </span>
-        &nbsp;&nbsp; <button class="tcget" style="white-space: nowrap;"><i class="bi bi-download"></i> Get</button>
-        &nbsp;&nbsp; <button class="tcdetails" style="white-space: nowrap;"><i class="bi bi-nut"></i> Details</button>
+        &nbsp;&nbsp; <button class="tcdetails" style="white-space: nowrap;">Details</button>
+        &nbsp;&nbsp; <button class="tcget" style="white-space: nowrap;"><i class="bi bi-download"></i></button>
         &nbsp;&nbsp;
 
     </div><br>
@@ -75,9 +73,10 @@
 <template id="tdetails">
     <div>
         Command for BlxDash:<br><br>
-        <span class="spath" style="padding: 1rem ; background-color: rgba(0,0,0,0.05)">
+        <button class="tbcopy"><i class="bi bi-copy"></i></button>&nbsp;
+        <span class="spath" style="padding: 0.5rem ; background-color: rgba(0,0,0,0.05)">
         </span>
-        &nbsp;<button class="tbcopy"><i class="bi bi-copy"></i></button>
+
     </div>
     <br>
     Scan QRCode with BlxDash:<br>

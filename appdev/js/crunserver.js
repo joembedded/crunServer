@@ -10,7 +10,7 @@ import './FileSaver.js' // SaveAs
 const _dbg = false // true // - Set to true to get sample data
 
 //--------- globals ------ 
-export const VERSION = 'V0.03 / 06.02.2025'
+export const VERSION = 'V0.04 / 07.02.2025'
 export const COPYRIGHT = '(C)JoEmbedded.de'
 
 document.getElementById("svers").textContent = VERSION
