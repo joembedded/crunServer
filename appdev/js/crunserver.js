@@ -10,7 +10,7 @@ import './FileSaver.js' // SaveAs
 const _dbg = false // true // - Set to true to get sample data
 
 //--------- globals ------ 
-export const VERSION = 'V0.04 / 07.02.2025'
+export const VERSION = 'V0.05 / 18.02.2025'
 export const COPYRIGHT = '(C)JoEmbedded.de'
 
 document.getElementById("svers").textContent = VERSION
@@ -20,7 +20,7 @@ document.getElementById("svers").textContent = VERSION
 if (_dbg) {
     const dbgbut = document.getElementById("debugbutton")
     dbgbut.hidden = false
-    dbgbut.addEventListener('click', async () =>  {
+    dbgbut.addEventListener('click', async () => {
         const tdet = document.getElementById("tdetails").content.cloneNode(true)
         const qdi = JD.prepareCustomDialog("TestDialog", tdet)
         await JD.doCustomDialog(qdi)
@@ -41,23 +41,28 @@ async function fileExport(string, fname) {
 }
 async function buttonGet(e) { // Klick evtl. aufs Symbol, daher 2 Parents up
     let crun = e.target.parentNode.querySelector(".tcrun")?.textContent
-    if(!crun) crun = e.target.parentNode.parentNode.querySelector(".tcrun").textContent
-     JD.fetch_get_txt(`./php/cget.php?cf=${crun}`, async (e) => {
-         await fileExport(e, crun)
-     })
+    if (!crun) crun = e.target.parentNode.parentNode.querySelector(".tcrun").textContent
+    JD.fetch_get_txt(`./php/cget.php?cf=${crun}`, async (e) => {
+        await fileExport(e, crun)
+    })
 }
 
 async function buttonDetails(e) { // Klick evtl. aufs Symbol, daher 2 Parents up
     let crun = e.target.parentNode.querySelector(".tcrun")?.textContent
-    if(!crun) crun = e.target.parentNode.parentNode.querySelector(".tcrun").textContent
+    if (!crun) crun = e.target.parentNode.parentNode.querySelector(".tcrun").textContent
     const tdet = document.getElementById("tdetails").content.cloneNode(true)
     const spath = new URL(location).href
     const cruncmd = `.crun ${spath}php/cget.php?cf=${encodeURI(crun)}`
     tdet.querySelector(".spath").textContent = cruncmd
-    tdet.querySelector(".tqrimg").src = "./php_qr/ltx_qr.php?text=CMD:"+cruncmd
-    tdet.querySelector(".tbcopy").addEventListener('click',async ()=>{
-        navigator.clipboard.writeText(cruncmd)
-        await JD.doDialogOK("Copied to Clipboard:","<br>'"+cruncmd+"'<br><br>")
+    tdet.querySelector(".tqrimg").src = "./php_qr/ltx_qr.php?text=CMD:" + cruncmd
+    tdet.querySelector(".tbcopy").addEventListener('click', async () => {
+        try {
+            if(!navigator.clipboard) throw new Error("No Clipboard!") // Only for Secure Servers?
+            navigator.clipboard.writeText(cruncmd)
+            await JD.doDialogOK("Copied to Clipboard:", "<br>'" + cruncmd + "'<br><br>")
+        } catch (err) {
+            await JD.doDialogOK("ERROR", "<br>'" + err + "'<br><br>")
+        }
     })
     const qdi = JD.prepareCustomDialog(`Details '${crun}'`, tdet)
     await JD.doCustomDialog(qdi)

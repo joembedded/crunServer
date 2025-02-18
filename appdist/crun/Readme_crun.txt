@@ -1,12 +1,13 @@
 In diesem Ordner befinden sich diverse Scripte fuer CRUN
-Einige davon sind vertraulich. Genaue Anleitung zu CRUN *todo*
+Einige davon sind vertraulich. 
+Genaue Anleitung zu CRUN *todo*
 
 In diesem Verzeichns Allgemeine Scripte!
 Aufruf z.B. mit CMD: .crun crun/test.crun
 
+Details in 'blx_commands.txt' in BlxDashboard
 
 Minimal:
-
 //
 ---
 Kommentar - Kommentare beginnen immer mit // Kommentare in den Zeilen nicht erlaubt
